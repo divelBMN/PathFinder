@@ -1,9 +1,12 @@
 package Main;
 
+import utilities.Vector;
+
 public class Pathfinder {
 	
-	Task task;
-	Mind mind;
+	private Task task;
+	private Mind mind;
+	
 	
 	
 	
@@ -12,7 +15,14 @@ public class Pathfinder {
 		Vector taskPosition = this.task.getPosition();
 		Vector solvePosition = this.mind.getSolvePosition();
 		
-		return solvePosition.equals(taskPosition);
+		return solvePosition.isEquals(taskPosition);
+	
+	}
+	
+	public void nextIteration() {
+		
+		Vector taskPosition = this.task.getPosition();
+		this.mind.correctSolve(taskPosition);
 	
 	}
 }
