@@ -35,7 +35,7 @@ public class Pathfinder {
 	public void nextIteration() {
 		Vector taskPosition = this.task.getPosition();
 		this.mind.correctSolve(taskPosition);
-		this.render.display(this.mind.getSolvePosition());
+		this.render.display(this.mind);
 	}
 	
 	private Vector generateRandomPosition() {

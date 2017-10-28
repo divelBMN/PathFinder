@@ -1,5 +1,6 @@
 package render;
 
+import mind.Mind;
 import utilities.Vector;
 
 public class Render {
@@ -15,12 +16,12 @@ public class Render {
 		this.iterationIndex = 0;
 	}
 	
-	public void display(Vector solvePosition) {
+	public void display(Mind mind) {
 		this.displayBorderLine();
 		this.displayIterationIndex();
 		this.displayVector(this.startPosition, "start position");
 		this.displayVector(this.taskPosition, "Task");
-		this.displayVector(solvePosition, "current solve");
+		this.displayVector(mind.getSolvePosition(), "current solve");
 		this.displayBorderLine();
 		System.out.println();
 		System.out.println();
