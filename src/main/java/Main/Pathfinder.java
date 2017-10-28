@@ -1,6 +1,7 @@
 package Main;
 
 import mind.Mind;
+import render.Render;
 import scene.Scene;
 import task.Task;
 import utilities.Vector;
@@ -13,11 +14,17 @@ public class Pathfinder {
 	private Task task;
 	private Mind mind;
 	private Scene scene;
+	private Render render;
 	
 	
-	//TODO дописать конструктор
 	public Pathfinder() {
-	
+		this.scene = new Scene(new Vector(15,10));
+		this.task = new Task(this.scene);
+		this.startPosition = this.generateRandomPosition();
+		this.mind = new Mind(this.scene, this.startPosition);
+		this.render = new Render();
+		
+		this.render.displayStartParametres(this.task.getPosition(), this.startPosition);
 	}
 	
 	public boolean isSolved() {
@@ -28,10 +35,9 @@ public class Pathfinder {
 	}
 	
 	public void nextIteration() {
-		
 		Vector taskPosition = this.task.getPosition();
 		this.mind.correctSolve(taskPosition);
-	
+		this.render.display(this.mind.getSolvePosition());
 	}
 	
 	private Vector generateRandomPosition() {

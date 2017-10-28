@@ -20,7 +20,6 @@ public class Mind {
 		return this.solvePosition;
 	}
 	
-	//TODO создать метод
 	public void correctSolve(Vector taskPosition) {
 		int error = this.calculateError(taskPosition, this.solvePosition);
 		Vector[] mutations = this.generateMutations(error);
@@ -64,6 +63,7 @@ public class Mind {
 						this.solvePosition.getY() + deltaY
 				);
 				mutations[index] = mutation;
+				index++;
 			}
 		}
 		

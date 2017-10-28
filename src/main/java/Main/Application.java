@@ -8,6 +8,8 @@ public class Application {
 		while (!pathfinder.isSolved()) {
 			pathfinder.nextIteration();
 		}
+		
+		System.out.println("ok");
 	}
 
 }
