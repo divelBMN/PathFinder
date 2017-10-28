@@ -1,7 +1,7 @@
 package Main;
 
 import mind.Mind;
-import render.Render;
+import render.SimpleTextRender;
 import scene.Scene;
 import task.Task;
 import utilities.Vector;
@@ -14,7 +14,7 @@ public class Pathfinder {
 	private Task task;
 	private Mind mind;
 	private Scene scene;
-	private Render render;
+	private SimpleTextRender simpleTextRender;
 	
 	
 	public Pathfinder() {
@@ -22,7 +22,7 @@ public class Pathfinder {
 		this.task = new Task(this.scene);
 		this.startPosition = this.generateRandomPosition();
 		this.mind = new Mind(this.scene, this.startPosition);
-		this.render = new Render(this.startPosition, this.task.getPosition());
+		this.simpleTextRender = new SimpleTextRender(this.startPosition, this.task.getPosition());
 	}
 	
 	public boolean isSolved() {
@@ -35,7 +35,7 @@ public class Pathfinder {
 	public void nextIteration() {
 		Vector taskPosition = this.task.getPosition();
 		this.mind.correctSolve(taskPosition);
-		this.render.display(this.mind);
+		this.simpleTextRender.display(this.mind);
 	}
 	
 	private Vector generateRandomPosition() {

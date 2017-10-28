@@ -3,14 +3,14 @@ package render;
 import mind.Mind;
 import utilities.Vector;
 
-public class Render {
+public class SimpleTextRender implements Displaying {
 	
 	private int iterationIndex;
 	private Vector startPosition;
 	private Vector taskPosition;
 	
 	
-	public Render(Vector startPosition, Vector taskPosition) {
+	public SimpleTextRender(Vector startPosition, Vector taskPosition) {
 		this.startPosition = startPosition;
 		this.taskPosition = taskPosition;
 		this.iterationIndex = 0;
