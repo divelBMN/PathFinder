@@ -33,10 +33,12 @@ public class Mind {
 		int minError = this.calculateError(taskPosition, bestMutation);
 		
 		for (Vector mutation : mutations) {
-			int error = this.calculateError(taskPosition, mutation);
-			if (error < minError) {
-				bestMutation = mutation;
-				minError = error;
+			if (this.scene.isAvailablePosition(mutation)) {
+				int error = this.calculateError(taskPosition, mutation);
+				if (error < minError) {
+					bestMutation = mutation;
+					minError = error;
+				}
 			}
 		}
 		
