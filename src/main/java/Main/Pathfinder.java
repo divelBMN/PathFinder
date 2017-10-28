@@ -1,5 +1,6 @@
 package Main;
 
+import task.Task;
 import utilities.Vector;
 
 public class Pathfinder {
@@ -11,11 +12,9 @@ public class Pathfinder {
 	
 	
 	public boolean isSolved() {
-	
-		Vector taskPosition = this.task.getPosition();
-		Vector solvePosition = this.mind.getSolvePosition();
 		
-		return solvePosition.isEquals(taskPosition);
+		Vector solvePosition = this.mind.getSolvePosition();
+		return this.task.isTaskPosition(solvePosition);
 	
 	}
 	
