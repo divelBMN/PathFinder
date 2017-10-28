@@ -10,13 +10,13 @@ public class SimpleTextRender implements Displaying {
 	private Vector taskPosition;
 	
 	
-	public SimpleTextRender(Vector startPosition, Vector taskPosition) {
+	public SimpleTextRender(final Vector startPosition, final Vector taskPosition) {
 		this.startPosition = startPosition;
 		this.taskPosition = taskPosition;
 		this.iterationIndex = 0;
 	}
 	
-	public void display(Mind mind) {
+	public void display(final Mind mind) {
 		this.displayBorderLine();
 		this.displayIterationIndex();
 		this.displayVector(this.startPosition, "start position");
@@ -29,7 +29,7 @@ public class SimpleTextRender implements Displaying {
 		this.iterationIndex++;
 	}
 	
-	private void displayVector(Vector vector, String message) {
+	private void displayVector(final Vector vector, final String message) {
 		String vectorString = vector.getX() + " - " + vector.getY();
 		System.out.println(message + ": " + vectorString);
 	}
