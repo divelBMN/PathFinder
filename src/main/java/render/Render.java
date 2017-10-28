@@ -5,26 +5,25 @@ import utilities.Vector;
 public class Render {
 	
 	private int iterationIndex;
+	private Vector startPosition;
+	private Vector taskPosition;
 	
-
 	
-	public Render() {
+	public Render(Vector startPosition, Vector taskPosition) {
+		this.startPosition = startPosition;
+		this.taskPosition = taskPosition;
 		this.iterationIndex = 0;
 	}
 	
-	public void displayStartParametres(Vector taskPosition, Vector startPosition) {
-		this.displayVector(startPosition, "start position");
-		this.displayVector(taskPosition, "Task");
-		
-		System.out.println();
-		System.out.println();
-	}
-	
 	public void display(Vector solvePosition) {
+		this.displayBorderLine();
 		this.displayIterationIndex();
-		
+		this.displayVector(this.startPosition, "start position");
+		this.displayVector(this.taskPosition, "Task");
 		this.displayVector(solvePosition, "current solve");
-		this.displayLastString();
+		this.displayBorderLine();
+		System.out.println();
+		System.out.println();
 		
 		this.iterationIndex++;
 	}
@@ -38,10 +37,8 @@ public class Render {
 		System.out.println("Index of current iteration: " + this.iterationIndex);
 	}
 	
-	private void displayLastString() {
-		System.out.println("");
+	private void displayBorderLine() {
 		System.out.println("======================================");
-		System.out.println("");
 	}
 
 }

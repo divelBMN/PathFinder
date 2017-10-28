@@ -22,9 +22,7 @@ public class Pathfinder {
 		this.task = new Task(this.scene);
 		this.startPosition = this.generateRandomPosition();
 		this.mind = new Mind(this.scene, this.startPosition);
-		this.render = new Render();
-		
-		this.render.displayStartParametres(this.task.getPosition(), this.startPosition);
+		this.render = new Render(this.startPosition, this.task.getPosition());
 	}
 	
 	public boolean isSolved() {
