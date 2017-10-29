@@ -21,20 +21,19 @@ public class Mind {
 	}
 	
 	public void correctSolve(Vector taskPosition) {
-		int error = this.calculateError(taskPosition, this.solvePosition);
-		Vector[] mutations = this.generateMutations(error);
+		float error = this.calculateError(taskPosition, this.solvePosition);
+		Vector[] mutations = this.generateMutations(Math.round(error));
 		Vector bestMutation = this.findBestMutation(taskPosition, mutations);
 		this.solvePosition = bestMutation;
 	}
 	
 	private Vector findBestMutation(Vector taskPosition, Vector[] mutations) {
-		int size = mutations.length;
 		Vector bestMutation = mutations[0];
-		int minError = this.calculateError(taskPosition, bestMutation);
+		float minError = this.calculateError(taskPosition, bestMutation);
 		
 		for (Vector mutation : mutations) {
 			if (this.scene.isAvailablePosition(mutation)) {
-				int error = this.calculateError(taskPosition, mutation);
+				float error = this.calculateError(taskPosition, mutation);
 				if (error < minError) {
 					bestMutation = mutation;
 					minError = error;
@@ -45,11 +44,11 @@ public class Mind {
 		return bestMutation;
 	}
 	
-	private int calculateError(Vector taskPosition, Vector position) {
+	private float calculateError(Vector taskPosition, Vector position) {
 		float deltaX = (float)(taskPosition.getX() - position.getX());
 		float deltaY = (float)(taskPosition.getY() - position.getY());
 		float error = (float) Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-		return Math.round(error);
+		return error;
 	}
 	
 	private Vector[] generateMutations(int error) {
