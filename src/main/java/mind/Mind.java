@@ -6,6 +6,7 @@ import utilities.Vector;
 public class Mind {
 	
 	private final int MAX_MUTATIONS = 9;
+	private final int CURRENT_MUTATION_INDEX = 4;
 	
 	private Vector solvePosition;
 	private Scene scene;
@@ -28,7 +29,7 @@ public class Mind {
 	}
 	
 	private Vector findBestMutation(Vector taskPosition, Vector[] mutations) {
-		Vector bestMutation = mutations[0];
+		Vector bestMutation = mutations[CURRENT_MUTATION_INDEX];
 		float minError = this.calculateError(taskPosition, bestMutation);
 		
 		for (Vector mutation : mutations) {
